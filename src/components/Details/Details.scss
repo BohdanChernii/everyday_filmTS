@@ -1,0 +1,92 @@
+.details {
+  display: flex;
+  padding: 0 8%;
+
+  &__left {
+    width: 300px;
+
+    &-poster {
+      width: 300px;
+    }
+
+    &-info {
+      margin-top: 5%;
+
+      p {
+        line-height: 150%;
+      }
+    }
+  }
+
+  &__right {
+    width: 70%;
+    padding: 2%;
+    position: relative;
+
+    &-title {
+      font-size: 30px;
+      margin-bottom: 2%;
+    }
+
+    &-subtitle {
+      font-size: 25px;
+      margin-bottom: 5%;
+    }
+
+    &-overview {
+      font-size: 18px;
+    }
+
+    &-genres {
+      margin: 5% 0 20px 0;
+      display: flex;
+
+      p {
+        margin-right: 10px;
+        font-size: 15px;
+      }
+    }
+
+    &-back {
+      width: 100px;
+      height: 40px;
+      border: none;
+      background: #800;
+      color: white;
+      font-weight: 600;
+      font-size: 25px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    &-popularity {
+      position: absolute;
+      bottom: 2%;
+      right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .details {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+
+    &__left {
+      width: 100%;
+    }
+
+    &__right {
+      padding: 0;
+      margin-top: 20px;
+      width: 100%;
+
+      &-popularity {
+        position: relative;
+        bottom: 2%;
+        right: 0;
+      }
+    }
+  }
+}
