@@ -81,7 +81,7 @@ const Slider: FC = () => {
                   fontSize: '30px',
 
                 }}
-              >{step.title}</Typography>
+              ></Typography>
               <Box
                 sx={{
                   width: '100%',
