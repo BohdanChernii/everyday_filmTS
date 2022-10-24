@@ -21,7 +21,7 @@ type IProps = {
 const Movie: FC<IProps> = ({movie}) => {
   const {title, genre_ids, release_date, poster_path, vote_average} = movie
   const {genres} = useAppSelector(state => state.genresReducer)
-
+  console.log(movie);
   const dispatch = useAppDispatch()
 
   useEffect(() => {

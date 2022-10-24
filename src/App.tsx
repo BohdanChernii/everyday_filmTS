@@ -14,7 +14,7 @@ const App: FC = () => {
   const {background, color} = useAppSelector(state => state.themeReducer)
   return (
     <div className="App" style={{color:color,background:background}}>
-      <div className="page">
+      <div className="page" >
         <Routes>
           <Route  path={'/'} element={<MainLayout/>}>
             <Route index element={<Navigate to={'/movies'}/>}/>

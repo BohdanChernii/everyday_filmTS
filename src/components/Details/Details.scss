@@ -1,7 +1,7 @@
 .details {
   display: flex;
   padding: 0 8%;
-
+height: 75vh;
   &__left {
     width: 300px;
 
@@ -61,7 +61,7 @@
 
     &-popularity {
       position: absolute;
-      bottom: 2%;
+      bottom: 35%;
       right: 0;
     }
   }
@@ -72,6 +72,7 @@
     flex-direction: column;
     align-items: center;
     margin: auto;
+    height: 100%;
 
     &__left {
       width: 100%;

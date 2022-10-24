@@ -35,7 +35,8 @@ const Header: FC = () => {
     <header className={'header'}>
 
       <div className="header__logo">
-        <p className="header__logo-logo">EDF</p>
+        <img className="header__logo-logo" src={'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}/>
+        <p>Bohdan Tchernii</p>
       </div>
 
       {!theme ? (<FontAwesomeIcon
