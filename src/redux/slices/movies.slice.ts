@@ -11,6 +11,7 @@ interface IState<IMovie> {
   movies: IMovie[] | []
   loading: boolean
   filterParam: string
+  popular: IMovie[]
 }
 
 interface IGet {
@@ -32,6 +33,7 @@ const initialState: IState<IMovie> = {
   movies: [],
   loading: false,
   filterParam: '',
+  popular: []
 }
 
 const getMovies = createAsyncThunk<IMovie[], IGet>(
@@ -76,6 +78,19 @@ const getBySearchParam = createAsyncThunk<IMovie[], ISearchParamFilter>(
   }
 )
 
+const getPopular = createAsyncThunk<IMovie[]>(
+  'getPopular/moviesSlice',
+  async (_, {rejectWithValue}) => {
+    try {
+      const {data} = await moviesService.getPopular()
+      return data.results
+    } catch (e) {
+      const err = e as AxiosError
+      return rejectWithValue(err.response?.data)
+    }
+  }
+)
+
 
 const moviesSlice = createSlice({
   name: 'moviesSlice',
@@ -96,20 +111,27 @@ const moviesSlice = createSlice({
 
   },
   extraReducers: builder =>
-    builder.addCase(getMovies.fulfilled, (state, action) => {
+    builder
+      .addCase(getMovies.fulfilled, (state, action) => {
       state.movies = action.payload
       state.loading = false
-    }).addCase(getMovies.pending, (state, action) => {
+    })
+      .addCase(getMovies.pending, (state, action) => {
       state.loading = true
-    }).addCase(getBySearchParam.fulfilled, (state, action) => {
+    })
+      .addCase(getBySearchParam.fulfilled, (state, action) => {
       state.movies = action.payload
     })
       .addCase(getByGenres.fulfilled, (state, action) => {
         state.movies = action.payload
         state.loading = false
-      }).addCase(getByGenres.pending, (state) => {
+      })
+      .addCase(getByGenres.pending, (state) => {
       state.loading = true
     })
+      .addCase(getPopular.fulfilled, (state, action) => {
+        state.popular = action.payload
+      })
 
 })
 
@@ -125,6 +147,7 @@ const moviesActions = {
   setPage,
   setFilterParam,
   getBySearchParam,
-  getByGenres
+  getByGenres,
+  getPopular
 }
 export {moviesActions, moviesSlice, moviesReducer}

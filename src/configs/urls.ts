@@ -4,4 +4,5 @@ export const urls = {
   search: '/search/movie',
   page: '/discover/movie/?page=',
   posts: '/genre/movie/list',
+  trending:'/trending/all/day'
 }
