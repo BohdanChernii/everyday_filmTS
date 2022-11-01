@@ -1,0 +1,32 @@
+.coursel{
+  padding: 0 8%;
+  &__title{
+    margin: 2% 0;
+  }
+  .slider {
+    width: 100%;
+    margin: auto;
+    position: relative;
+
+    &__item {
+      width: 100%;
+      max-height: 500px;
+
+      &-image {
+        width: 100%;
+        object-fit:cover;
+        margin-bottom: 5%;
+        height:500px
+      }
+
+      &-name {
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+        color: #fff;
+        font-size: 25px;
+        font-weight: 900;
+      }
+    }
+  }
+}
